@@ -3,6 +3,8 @@
 
 provider "azurerm" {
   features {}
+  skip_provider_registration = true
+  subscription_id            = "683c85cb-860b-4cc1-bca8-ef6df1ee662d"
 }
 
 resource "azurerm_resource_group" "main" {
@@ -47,7 +49,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   ]
 
   admin_ssh_key {
-    username = "voxsteel"
+    username = "adminuser"
     #path     = "/home/voxsteel/.ssh/authorized_keys"
     public_key = file("~/.ssh/unused/id_rsa.pub")
   }
